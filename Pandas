@@ -1,0 +1,44 @@
+import pandas as pd 
+data={"Name":['Shlok','Tommy','Johnny','Tom Ford'],
+      'Age':[18,19,29,21],
+      'Class':[1,2,3,4]}
+df=pd.DataFrame(data)
+print(df)
+
+data1={"PRN":[23064191913025,230634231828],
+      'Department':['CSE[AI]','CSE']}
+df=pd.DataFrame(data1)
+print(df)
+
+# data exploration
+
+data=pd.read_excel("ESD.xlsx")
+print(data)
+print(data.head(10))
+print(data.tail(10))
+print(data.info()) #information about data 
+print(data.describe()) #values into integer 
+print(data.isnull())
+print(data.isnull().sum())
+
+# Handling Duplicates in Pandas 
+
+data=pd.read_excel('ESD.xlsx')
+print(data['EEID'].duplicated().sum())
+print(data.drop_duplicates('EEID'))
+
+# Null Values
+import numpy as np 
+data=pd.read_csv("company1.csv")
+print(data.isnull().sum())
+print(data.dropna())
+print(data)
+print(data.replace(np.nan,"hii"))
+data["salary"]=data["salary"].replace(np.nan,24400)
+print(data)
+print(data.drop_duplicates('EEID'))
+print(data.fillna(method='ffill'))
+print(data.fillna(method="bfill"))
+
+
+
